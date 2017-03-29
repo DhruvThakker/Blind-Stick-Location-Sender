@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                         year = Integer.parseInt(et_year.getText().toString());
                         trackingId=name+year;
                         UserIdRef=Ref.child(trackingId);
-                        UserIdRef.setValue("aaaa");
                         UserIdRef.child("Name").setValue(name);
                         UserIdRef.child("Year").setValue(year);
                         editor.putString("name", name);
@@ -119,15 +118,18 @@ public class MainActivity extends AppCompatActivity {
                     latitude = gps.getLatitude();
                     longitude = gps.getLongitude();
                     time = gps.getTime();
-                    UserIdRef.child("Latitude").setValue(latitude);
-                    UserIdRef.child("Longitude").setValue(longitude);
-                    UserIdRef.child("Time").setValue(time);
+
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(time);
                     Date date = calendar.getTime();
-                    if(latitude!=0)
+                    if(latitude!=0){
+                        UserIdRef.child("Latitude").setValue(latitude);
+                        UserIdRef.child("Longitude").setValue(longitude);
+                        UserIdRef.child("Time").setValue(time);
                         Toast.makeText(getApplicationContext(), "Your location is - \nLat: " + latitude + "\nLong: " + longitude +
                                 "\nRecorded at: " + date.toString(), Toast.LENGTH_LONG).show();
+                    }
+
                 } else {
                     gps.showSettingsAlert();
                 }
