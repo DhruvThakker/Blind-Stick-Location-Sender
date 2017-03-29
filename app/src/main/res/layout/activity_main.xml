@@ -12,17 +12,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_sendLocation"
-        android:text="Send My Location"/>
+        android:text="Send My Location"
+        android:layout_gravity="center"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_trackingId"
-        android:text="Get Your Tracking Id"/>
+        android:text="Get Your Tracking Id"
+        android:layout_gravity="center"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_shareTrackingId"
-        android:text="share your tracking id"/>
+        android:text="share your tracking id"
+        android:layout_gravity="center"/>
 
 
 
