@@ -21,6 +21,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_PERMISSION = 2;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
     GPSTracker gps;
+    Firebase Ref,UserIdRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +45,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        name = prefs.getString("name", null);
+        name = prefs.getString("name",null);
         year = prefs.getInt("year", 0);
+
+        Ref=new Firebase("https://track-me-63d56.firebaseio.com/");
 
         if(name==null || year==0 ){
             final Dialog dialog = new Dialog(this);
@@ -65,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         name = et_name.getText().toString();
                         year = Integer.parseInt(et_year.getText().toString());
+                        trackingId=name+year;
+                        UserIdRef=Ref.child(trackingId);
+                        UserIdRef.setValue("aaaa");
+                        UserIdRef.child("Name").setValue(name);
+                        UserIdRef.child("Year").setValue(year);
                         editor.putString("name", name);
                         editor.putInt("year", year);
                         editor.commit();
@@ -74,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-
         btn_showTrackingId = (Button) findViewById(R.id.btn_trackingId);
         btn_showTrackingId.setOnClickListener(new View.OnClickListener() {
             @Override
