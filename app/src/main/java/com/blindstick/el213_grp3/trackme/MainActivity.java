@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,7 +38,12 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_PERMISSION = 2;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
     GPSTracker gps;
+<<<<<<< HEAD
     Firebase Ref,UserIdRef;
+=======
+    double latitude,longitude;
+    long time;
+>>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                     if(et_name.getText().toString().isEmpty() || et_year.getText().toString().isEmpty()){
                         Toast.makeText(MainActivity.this, "Please enter both details", Toast.LENGTH_SHORT).show();
                     }
+                    else if(!et_name.getText().toString().matches("[A-Za-z]+")) {
+                        Toast.makeText(MainActivity.this,"Please enter name with alphabets only",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(!et_year.getText().toString().matches("[0-9]+")) {
+                        Toast.makeText(MainActivity.this,"Please enter year in numbers only",Toast.LENGTH_SHORT).show();
+                    }
                     else{
                         name = et_name.getText().toString();
                         year = Integer.parseInt(et_year.getText().toString());
@@ -91,7 +103,40 @@ public class MainActivity extends AppCompatActivity {
                 showTrackingId();
             }
         });
+
+        btn_sendLocation = (Button) findViewById(R.id.btn_sendLocation);
+
+        btn_sendLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if(ActivityCompat.checkSelfPermission(MainActivity.this,mPermission)!= PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(MainActivity.this, new String[]{mPermission},REQUEST_CODE_PERMISSION);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                gps = new GPSTracker(MainActivity.this);
+
+                if (gps.canGetLocation()) {
+                    latitude = gps.getLatitude();
+                    longitude = gps.getLongitude();
+                    time = gps.getTime();
+
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTimeInMillis(time);
+                    Date date = calendar.getTime();
+                    if(latitude!=0)
+                        Toast.makeText(getApplicationContext(), "Your location is - \nLat: " + latitude + "\nLong: " + longitude +
+                                "\nRecorded at: " + date.toString(), Toast.LENGTH_LONG).show();
+                } else {
+                    gps.showSettingsAlert();
+                }
+            }
+        });
     }
+
     public void showTrackingId() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
@@ -118,37 +163,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alertDialog.show();
-
-        btn_sendLocation = (Button) findViewById(R.id.btn_sendLocation);
-
-        btn_sendLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    if(ActivityCompat.checkSelfPermission(MainActivity.this,mPermission)!= PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(MainActivity.this, new String[]{mPermission},REQUEST_CODE_PERMISSION);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                gps = new GPSTracker(MainActivity.this);
-
-                if (gps.canGetLocation()) {
-                    double latitude = gps.getLatitude();
-                    double longitude = gps.getLongitude();
-                    long time = gps.getTime();
-
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(time);
-                    Date date = calendar.getTime();
-
-                    Toast.makeText(getApplicationContext(), "Your location is - \nLat: " + latitude + "\nLong: " + longitude +
-                                "\nRecorded at: " + date.toString(), Toast.LENGTH_LONG).show();
-                } else {
-                    gps.showSettingsAlert();
-                }
-            }
-        });
     }
 }
