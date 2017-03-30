@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,12 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_PERMISSION = 2;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
     GPSTracker gps;
-<<<<<<< HEAD
     Firebase Ref,UserIdRef;
-=======
     double latitude,longitude;
     long time;
->>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +119,9 @@ public class MainActivity extends AppCompatActivity {
                     latitude = gps.getLatitude();
                     longitude = gps.getLongitude();
                     time = gps.getTime();
-
+                    UserIdRef.child("Latitude").setValue(latitude);
+                    UserIdRef.child("Longitude").setValue(longitude);
+                    UserIdRef.child("Time").setValue(time);
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(time);
                     Date date = calendar.getTime();
