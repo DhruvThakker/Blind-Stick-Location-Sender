@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "458348552853",
+    "firebase_url": "https://track-me-63d56.firebaseio.com",
+    "project_id": "track-me-63d56",
+    "storage_bucket": "track-me-63d56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458348552853:android:5b8934d0abd31bb1",
+        "android_client_info": {
+          "package_name": "com.blindstick.el213_grp3.trackme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458348552853-ekdjqhfr0044o2clsnm6vh5682v6lnbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARck2zvf8Ar6Bs7LHrdJcPCKVA4x-RDJs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
