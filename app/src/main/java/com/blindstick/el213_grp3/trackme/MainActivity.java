@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         year = prefs.getInt("year", 0);
 
         Ref=new Firebase("https://track-me-63d56.firebaseio.com/");
-
         if(name==null || year==0 ){
             final Dialog dialog = new Dialog(this);
 
@@ -95,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
+        }
+        else{
+            UserIdRef=Ref.child(name+year);
         }
         btn_showTrackingId = (Button) findViewById(R.id.btn_trackingId);
         btn_showTrackingId.setOnClickListener(new View.OnClickListener() {
