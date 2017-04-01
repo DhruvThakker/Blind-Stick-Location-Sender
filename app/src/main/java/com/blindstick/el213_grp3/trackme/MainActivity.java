@@ -98,6 +98,15 @@ public class MainActivity extends AppCompatActivity {
         else{
             UserIdRef=Ref.child(name+year);
         }
+
+        try {
+            if(ActivityCompat.checkSelfPermission(MainActivity.this,mPermission)!= PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{mPermission},REQUEST_CODE_PERMISSION);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         btn_showTrackingId = (Button) findViewById(R.id.btn_trackingId);
         btn_showTrackingId.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,13 +120,6 @@ public class MainActivity extends AppCompatActivity {
         btn_sendLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    if(ActivityCompat.checkSelfPermission(MainActivity.this,mPermission)!= PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(MainActivity.this, new String[]{mPermission},REQUEST_CODE_PERMISSION);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
 
                 gps = new GPSTracker(MainActivity.this);
 
@@ -142,6 +144,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        gps.stopUsingGPS();
     }
 
     public void showTrackingId() {
