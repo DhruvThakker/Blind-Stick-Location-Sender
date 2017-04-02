@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.Settings;
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     int year;
     double latitude, longitude;
     long time, mob1, mob2;
-    ;
+    Thread t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,46 @@ public class MainActivity extends AppCompatActivity {
                 setBtn_sendLocation();
             }
         });
+
+        final Handler handler = new Handler(new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message msg) {
+                if(msg.arg1==1) {
+                    gps = new GPSTracker(MainActivity.this);
+
+                    if(gps.canGetLocation()) {
+
+                        double latitude = gps.getLatitude();
+                        double longitude = gps.getLongitude();
+                        long time = gps.getTime();
+
+                        UserIdRef.child("Latitude").setValue(latitude);
+                        UserIdRef.child("Longitude").setValue(longitude);
+                        UserIdRef.child("Time").setValue(time);
+                    }
+                }
+                return false;
+            }
+        });
+
+        t = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000*60*45);
+                        Message msg = new Message();
+                        msg.arg1 = 1;
+                        handler.sendMessage(msg);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+
+        t.start();
+
     }
 
     private void setBtn_sendLocation() {
