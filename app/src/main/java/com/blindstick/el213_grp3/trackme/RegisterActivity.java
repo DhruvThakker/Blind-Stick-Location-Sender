@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                 if (et_name.getText().toString().isEmpty() || et_year.getText().toString().isEmpty() || et_mob1.getText().toString().isEmpty() || et_mob2.getText().toString().isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Please enter all details", Toast.LENGTH_SHORT).show();
-                } else if (!et_name.getText().toString().matches("[A-Za-z]+")) {
+                } else if (!et_name.getText().toString().matches("[A-Za-z ]+")) {
                     Toast.makeText(RegisterActivity.this, "Please enter name with alphabets only", Toast.LENGTH_SHORT).show();
                 } else if (!et_year.getText().toString().matches("[0-9]+")) {
                     Toast.makeText(RegisterActivity.this, "Please enter year in numbers only", Toast.LENGTH_SHORT).show();
@@ -69,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Please enter valid mobile number", Toast.LENGTH_SHORT).show();
                 } else {
                     name = et_name.getText().toString();
+                    name = name.replaceAll(" ","");
                     year = Integer.parseInt(et_year.getText().toString());
                     mob1 = Long.parseLong(et_mob1.getText().toString());
                     mob2 = Long.parseLong(et_mob2.getText().toString());

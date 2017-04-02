@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
     Button btn_showTrackingId, btn_sendLocation;
     GPSTracker gps;
     Firebase Ref, UserIdRef;
-    private static final int REQUEST_CODE_PERMISSION = 2;
-    private static final int REQUEST_CODE_PERMISSION_MSG = 3;
-    String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
     String name = null, trackingId = null;
     int year;
     double latitude, longitude;
