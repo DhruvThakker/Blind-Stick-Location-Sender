@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     int year;
     double latitude, longitude;
     long time, mob1, mob2;
-    ;
+    private String appURL = "http://blindstick.el213grp3.sticklocater.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
                 String mobN1 = Long.toString(mob1);
                 String mobN2 = Long.toString(mob2);
                 SmsManager.getDefault()
-                        .sendTextMessage(mobN1, null, "This is " + name + ". I am in trouble. Need Help. You can Locate me with my tracking id: "+name+year+ " in Stick locator", null, null);
+                        .sendTextMessage(mobN1, null, "This is " + name + ". I am in trouble. Need Help. You can Locate me with my tracking id: "+name+year+ " at "+appURL+trackingId, null, null);
                 SmsManager.getDefault()
-                        .sendTextMessage(mobN2, null, "This is " + name + ". I am in trouble. Need Help. You can Loaate me with my tracking id: "+name+year+ " in Stick locator", null, null);
+                        .sendTextMessage(mobN2, null, "This is " + name + ". I am in trouble. Need Help. You can Locate me with my tracking id: "+name+year+ " at "+appURL+trackingId, null, null);
                 setBtn_sendLocation();
             }
         });

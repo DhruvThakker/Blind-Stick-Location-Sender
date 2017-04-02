@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     String name = null;
     int year;
     long mob1, mob2;
-
+    private String appURL = "http://blindstick.el213grp3.sticklocater.com/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,8 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                     String mobN1 = Long.toString(mob1);
                     String mobN2 = Long.toString(mob2);
-                    SmsManager.getDefault().sendTextMessage(mobN1, null, "This is " + name + ". You can track my location using tracking id: " + name + year + " using Stick Locator App.", null, null);
-                    SmsManager.getDefault().sendTextMessage(mobN2, null, "This is " + name + ". You can track my location using tracking id: " + name + year + " using Stick Locator App.", null, null);
+                    SmsManager.getDefault().sendTextMessage(mobN1, null, "This is " + name + ". You can track my location using tracking id: " + name + year +  " at "+appURL+name+year, null, null);
+                    SmsManager.getDefault().sendTextMessage(mobN2, null, "This is " + name + ". You can track my location using tracking id: " + name + year + " at "+appURL+name+year, null, null);
 
                     Intent i = new Intent(RegisterActivity.this, MainActivity.class);
                     i.putExtra("name", name);
