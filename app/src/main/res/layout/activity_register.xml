@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="#ffffff"
-            android:text="Regesiter"
+            android:text="Register"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
 </RelativeLayout>

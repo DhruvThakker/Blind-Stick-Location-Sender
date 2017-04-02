@@ -45,6 +45,8 @@ public class RegisterActivity extends AppCompatActivity {
             i.putExtra("year", year);
             i.putExtra("mob1", mob1);
             i.putExtra("mob2", mob2);
+            i.putExtra("first",false);
+            finish();
             startActivity(i);
         }
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +89,8 @@ public class RegisterActivity extends AppCompatActivity {
                     i.putExtra("year", year);
                     i.putExtra("mob1", mob1);
                     i.putExtra("mob2", mob2);
-
+                    i.putExtra("first",true);
+                    finish();
                     startActivity(i);
                 }
             }

@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         UserIdRef.child("Year").setValue(year);
         UserIdRef.child("Mob1").setValue(mob1);
         UserIdRef.child("Mob2").setValue(mob2);
+        if((Boolean) bundle.get("first"))
+            setBtn_sendLocation();
 
         btn_showTrackingId = (Button) findViewById(R.id.btn_trackingId);
         btn_showTrackingId.setOnClickListener(new View.OnClickListener() {
@@ -88,29 +90,33 @@ public class MainActivity extends AppCompatActivity {
                         .sendTextMessage(mobN1, null, "This is " + name + ". I am in trouble. Need Help. You can Locate me with my tracking id: "+name+year+ " in Stick locator", null, null);
                 SmsManager.getDefault()
                         .sendTextMessage(mobN2, null, "This is " + name + ". I am in trouble. Need Help. You can Loaate me with my tracking id: "+name+year+ " in Stick locator", null, null);
-                gps = new GPSTracker(MainActivity.this);
-
-                if (gps.canGetLocation()) {
-                    latitude = gps.getLatitude();
-                    longitude = gps.getLongitude();
-                    time = gps.getTime();
-
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(time);
-                    Date date = calendar.getTime();
-                    if (latitude != 0) {
-                        UserIdRef.child("Latitude").setValue(latitude);
-                        UserIdRef.child("Longitude").setValue(longitude);
-                        UserIdRef.child("Time").setValue(time);
-                        Toast.makeText(getApplicationContext(), "Your location is - \nLat: " + latitude + "\nLong: " + longitude +
-                                "\nRecorded at: " + date.toString(), Toast.LENGTH_LONG).show();
-                    }
-
-                } else {
-                    gps.showSettingsAlert();
-                }
+                setBtn_sendLocation();
             }
         });
+    }
+
+    private void setBtn_sendLocation() {
+        gps = new GPSTracker(MainActivity.this);
+
+        if (gps.canGetLocation()) {
+            latitude = gps.getLatitude();
+            longitude = gps.getLongitude();
+            time = gps.getTime();
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(time);
+            Date date = calendar.getTime();
+            if (latitude != 0) {
+                UserIdRef.child("Latitude").setValue(latitude);
+                UserIdRef.child("Longitude").setValue(longitude);
+                UserIdRef.child("Time").setValue(time);
+                Toast.makeText(getApplicationContext(), "Your location is - \nLat: " + latitude + "\nLong: " + longitude +
+                        "\nRecorded at: " + date.toString(), Toast.LENGTH_LONG).show();
+            }
+
+        } else {
+            gps.showSettingsAlert();
+        }
     }
 
     public void showTrackingId() {
