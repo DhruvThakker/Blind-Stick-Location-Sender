@@ -63,9 +63,9 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Please enter all details", Toast.LENGTH_SHORT).show();
                 } else if (!et_name.getText().toString().matches("[A-Za-z ]+")) {
                     Toast.makeText(RegisterActivity.this, "Please enter name with alphabets only", Toast.LENGTH_SHORT).show();
-                } else if (!et_year.getText().toString().matches("[0-9]+")) {
+                } else if (!et_year.getText().toString().matches("[0-9]{4}")) {
                     Toast.makeText(RegisterActivity.this, "Please enter year in numbers only", Toast.LENGTH_SHORT).show();
-                } else if (!et_mob1.getText().toString().matches("[0-9]+") || !et_mob2.getText().toString().matches("[0-9]+")) {
+                } else if (!et_mob1.getText().toString().matches("[0-9]{10}") || !et_mob2.getText().toString().matches("[0-9]{10}")) {
                     Toast.makeText(RegisterActivity.this, "Please enter valid mobile number", Toast.LENGTH_SHORT).show();
                 } else {
                     name = et_name.getText().toString();
