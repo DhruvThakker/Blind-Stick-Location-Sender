@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">Track Me</string>
-    <string name="send">send</string>
+    <string name="send">Send</string>
     <string name="connect">Connect a device</string>
     <string name="discoverable">make discoverable</string>
-    <string name="bt_not_enabled_leaving">bt_not_enabled_leaving</string>
-    <string name="not_connected">not connected</string>
-    <string name="title_paired_devices">title_paired_devices</string>
-    <string name="title_other_devices">title_other_devices</string>
-    <string name="button_scan">button_scan</string>
-    <string name="select_device">select_device</string>
+    <string name="bt_not_enabled_leaving">Please enable bluetooth to use app</string>
+    <string name="not_connected">Not Connected to any device</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Devices</string>
+    <string name="button_scan">Scan For New Devices</string>
+    <string name="select_device">Select Device</string>
     <string name="none_found">none_found</string>
-    <string name="scanning">scanning</string>
-    <string name="none_paired">none_paired</string>
+    <string name="scanning">Scanning</string>
+    <string name="none_paired">None Paired</string>
 </resources>

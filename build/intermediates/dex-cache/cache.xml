@@ -2,13 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\Jay\.android\build-cache\abc381e6669889ac098101a22d638bdb908f0fae\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\APPURVA\.android\build-cache\251e93f6d4acb5723e7869ac3353941197a054bc\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="C:\Users\Jay\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\pre-dexed\debug\classes_f34e1773d1a5c7eaf3f7f5a0247ef651e7b1f88a.jar" />
+        <dex dex="C:\Users\APPURVA\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d7d22907d39ee8d63915c40211c3787d69439f7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\APPURVA\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2e499ea0265864db113e31987ee42f58e6ab6dd0">
+        <dex dex="C:\Users\APPURVA\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1ce66b10342d694f8ae7b7e690e9b4af52670946\classes.dex" />
     </item>
 
 </items>
