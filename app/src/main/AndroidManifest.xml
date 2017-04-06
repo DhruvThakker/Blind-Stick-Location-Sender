@@ -3,6 +3,8 @@
     package="com.blindstick.el213_grp3.trackme">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.INTERNET"  />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
@@ -24,6 +26,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity
+            android:name=".DeviceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_device" />
     </application>
 
 </manifest>
