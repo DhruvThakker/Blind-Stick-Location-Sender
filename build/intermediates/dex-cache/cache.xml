@@ -2,22 +2,13 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\APPURVA\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Jay\.android\build-cache\abc381e6669889ac098101a22d638bdb908f0fae\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="18ccebe8ef116b1fe10b91fa6756e47b5391324e">
-        <dex dex="C:\Users\APPURVA\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1ce66b10342d694f8ae7b7e690e9b4af52670946\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\APPURVA\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\APPURVA\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_100bbd1ef1892b384f5159a9884507001f2eabab\classes.dex" />
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="C:\Users\Jay\AndroidStudioProjects\Blind-Stick-Location-Sender\app\build\intermediates\pre-dexed\debug\classes_f34e1773d1a5c7eaf3f7f5a0247ef651e7b1f88a.jar" />
     </item>
 
 </items>
