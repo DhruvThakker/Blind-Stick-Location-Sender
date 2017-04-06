@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Uri uri = Uri.parse("smsto:");
                 Intent it = new Intent(Intent.ACTION_SENDTO, uri);
-                it.putExtra("sms_body", "This is " + name + ". You can track my location using tracking id: " + name + year + " using Stick Locator App.");
+                it.putExtra("sms_body", "This is " + name + ". You can track my location using tracking id: " + name + year + " at "+appURL+trackingId);
                 startActivity(it);
 
             }

@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+
     android:paddingTop="16dp"
     tools:context="com.blindstick.el213_grp3.trackme.RegisterActivity">
 
@@ -18,7 +16,10 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/ll"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/textView"
@@ -28,7 +29,8 @@
             android:textColor="#ffffff"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:typeface="serif" />
+            android:typeface="serif"
+            android:paddingBottom="30dp"/>
 
         <EditText
             android:id="@+id/et_name"
@@ -36,8 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:hint="Enter Your Name"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff" />
+            android:textColor="#000000"
+            android:textColorHint="#ffffff"
+            android:background="@drawable/bg_edittext"
+            />
 
         <EditText
             android:id="@+id/et_year"
@@ -46,8 +50,9 @@
             android:layout_margin="15dp"
             android:hint="Enter Birth Year"
             android:inputType="number"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff" />
+            android:textColor="#000000"
+            android:textColorHint="#ffffff"
+            android:background="@drawable/bg_edittext"/>
 
         <EditText
             android:id="@+id/et_mob1"
@@ -56,8 +61,9 @@
             android:layout_margin="15dp"
             android:hint="Enter Mobile Number 1"
             android:inputType="phone"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff" />
+            android:textColor="#000000"
+            android:textColorHint="#ffffff"
+            android:background="@drawable/bg_edittext"/>
 
         <EditText
             android:id="@+id/et_mob2"
@@ -66,17 +72,21 @@
             android:layout_margin="15dp"
             android:hint="Enter Mobile Number 2"
             android:inputType="phone"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff" />
+            android:textColor="#000000"
+            android:textColorHint="#ffffff"
+            android:background="@drawable/bg_edittext"/>
 
 
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="#ffffff"
-            android:text="Register"
-            android:textColor="@color/colorPrimary" />
+
     </LinearLayout>
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#69F0AE"
+        android:text="Register"
+        android:textColor="#000000"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
